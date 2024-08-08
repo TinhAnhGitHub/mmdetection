@@ -1,0 +1,76 @@
+Collections:
+  - Name: Co-DETR
+    Metadata:
+      Training_Data: COCO
+      Training_Techniques:
+        - AdamW
+        - Weight_Decay
+      Training_Resources: 8x_V100_GPUs
+      Architecture:
+        - Transformer
+        - ResNet
+        - Attention
+    Paper:
+      URL: https://arxiv.org/abs/2211.12860
+      Title: 'DETRs with Collaborative Hybrid Assignments Training'
+    README: projects/CO-DETR/README.md
+    Code:
+      URL: https://github.com/TinhAnhGitHub/mmdetection/blob/main/projects/CO-DETR/codetr/codetr.py
+      Version: main
+
+Models:
+  - Name: co_dino_5scale_swin_l_lsj_16xb1_3x_coco
+    In_Collection: Co-DETR
+    Config: projects/CO-DETR/configs/codino/co_dino_5scale_swin_l_lsj_16xb1_3x_coco.py
+    Metadata:
+      Epochs: 16
+    Results:
+      - Task: Object Detection
+        Dataset: LVIS
+        Metrics:
+          box_AP: 64.1
+
+  - Name: co_dino_5scale_r50_lsj_8xb2_1x_coco
+    In_Collection: Co-DETR
+    Config: projects/CO-DETR/configs/codino/co_dino_5scale_r50_lsj_8xb2_1x_coco.py
+    Metadata:
+      Epochs: 12
+    Results:
+      - Task: Object Detection
+        Dataset: COCO
+        Metrics:
+          box_AP: 52.0
+
+  - Name: co_dino_5scale_r50_8xb2_1x_coco
+    In_Collection: Co-DETR
+    Config: projects/CO-DETR/configs/codino/co_dino_5scale_r50_8xb2_1x_coco.py
+    Metadata:
+      Epochs: 12
+    Results:
+      - Task: Object Detection
+        Dataset: COCO
+        Metrics:
+          box_AP: 52.1
+  
+
+  - Name: co_dino_5scale_r50_lsj_8xb2_3x_coco
+    In_Collection: Co-DETR
+    Config: projects/CO-DETR/configs/codino/co_dino_5scale_r50_lsj_8xb2_3x_coco.py
+    Metadata:
+      Epochs: 36
+    Results:
+      - Task: Object Detection
+        Dataset: COCO
+        Metrics 
+          box_AP: 54.8
+  
+  - Name: co_dino_5scale_swin_l_16xb1_1x_coco
+    In_Collection: Co-DETR
+    Config: projects/CO-DETR/configs/codino/co_dino_5scale_swin_l_16xb1_1x_coco.py
+    Metadata:
+      Epochs: 12
+    Results:
+      - Task: Object Detection
+        Dataset: COCO 
+        Metrics
+          box_AP: 58.9
